@@ -8,7 +8,7 @@ router.get("/Test", function (req, res) {
 router.get('/AuthPage', function (req, res) {
     let state = mod.crypto.randomBytes(16).toString('hex');
     res.cookie('XSRF-TOKEN', state);
-    res.send({ authUrl: "https://github.com/login/oauth/authorize?client_id=" + mod.config.CLIENT_ID + '&redirect_uri=' + mod.config.REDIRECT_URI + '&scope=repo:invite&allow_signup=' + false + '&state=' + state });
+    res.send({ authUrl: "https://github.com/login/oauth/authorize?client_id=" + mod.config.CLIENT_ID + '&redirect_uri=' + mod.config.REDIRECT_URI + '&scope=repo&allow_signup=' + false + '&state=' + state });
 })
 
 router.post('/getAccessToken', function (req, res) {
